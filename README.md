@@ -30,6 +30,9 @@ Expected output: 3 total sessions, 2 total sends, a 67% send rate, and sends by 
 
 - 2026-11-03 — Session 1: created the repo, installed Composer globally, configured Composer with PSR-4 autoloading, built the Session and SessionStats classes, and verified them with demo.php.
 
+- 2026-11-05 — Session 2: Clean-room test passed (vendor/ deleted, `composer install` rebuilt it, demo.php output unchanged). Installed local WordPress on MAMP (database created in phpMyAdmin, utf8mb4). Added climbing-session-log.php — plugin header, ABSPATH guard, guarded Composer autoloader require. Repo symlinked into wp-content/plugins/ and the plugin activated in wp-admin with no errors. demo.php still passes.
+
+
 ## License
 
 MIT
