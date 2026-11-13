@@ -20,6 +20,11 @@ Run `php demo.php`
 
 Expected output: 3 total sessions, 2 total sends, a 67% send rate, and sends by grade of black: 1, blue: 1. This proves the classes autoload and the logic runs without WordPress loaded.
 
+## Run the tests
+
+After `composer install`, run `./vendor/bin/phpunit`. The suite contains 8 tests for SessionStats (in `tests/SessionStatsTest.php`), covering totals, send rate, and sends by grade, including empty-input cases.
+
+
 ## Structure
 
 - `composer.json` — package definition, PHP version requirement, and the PSR-4 autoload mapping (`ClimbingLog\` -> `src/`)
@@ -32,6 +37,8 @@ Expected output: 3 total sessions, 2 total sends, a 67% send rate, and sends by 
 - 2026-11-03 — Session 1: created the repo, installed Composer globally, configured Composer with PSR-4 autoloading, built the Session and SessionStats classes, and verified them with demo.php.
 
 - 2026-11-05 — Session 2: Clean-room test passed (vendor/ deleted, `composer install` rebuilt it, demo.php output unchanged). Installed local WordPress on MAMP (database created in phpMyAdmin, utf8mb4). Added climbing-session-log.php — plugin header, ABSPATH guard, guarded Composer autoloader require. Repo symlinked into wp-content/plugins/ and the plugin activated in wp-admin with no errors. demo.php still passes.
+
+- 2026-11-12 — Week 3 started early: Installed PHPUnit 12.5 via Composer as a dev dependency (require-dev), with `phpunit.xml.dist` (Composer autoloader bootstrap, `tests/` suite) and a `ClimbingLog\Tests\` autoload-dev mapping to the new `tests/` folder. Wrote `tests/SessionStatsTest.php` — 8 tests covering totalSessions, totalSends, sendRate (including the zero-sessions guard case), and sendsByGrade — all passing (OK, 8 tests, 8 assertions), including after a fresh `composer install` rebuild from the lock file. `demo.php` still passes.
 
 
 ## License

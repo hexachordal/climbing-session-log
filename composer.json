@@ -5,5 +5,11 @@
     "require": {"php": ">=8.0"},
     "autoload": {
         "psr-4": { "ClimbingLog\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": { "ClimbingLog\\": "tests/"}
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.5"
     }
 }
