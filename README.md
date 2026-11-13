@@ -2,7 +2,8 @@
 
 A personal WordPress plugin for logging climbing sessions — grades, attempts, and sends — built as a learning project in modern PHP practices: Composer, PSR-4 autoloading, OOP, testing, Gutenberg blocks, and the WP REST API / WP-CLI.
 
-Currently only the core PHP logic exists, independent of WordPress. WordPress integration is planned for later stages.
+The core PHP logic (Session and SessionStats classes) lives in src/ and runs independently of WordPress. As of Session 2 the project also loads inside WordPress as an activated plugin via climbing-session-log.php, which pulls in the Composer autoloader.
+
 
 ## Requirements
 
