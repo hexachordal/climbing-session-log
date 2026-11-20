@@ -24,6 +24,16 @@ Expected output: 3 total sessions, 2 total sends, a 67% send rate, and sends by 
 
 After `composer install`, run `./vendor/bin/phpunit`. The suite contains 8 tests for SessionStats (in `tests/SessionStatsTest.php`), covering totals, send rate, and sends by grade, including empty-input cases.
 
+## Build the block assets
+
+The Recent Sessions block's editor JavaScript is compiled from the sources in blocks-src/. After cloning, run:
+
+npm install
+npm run build
+
+This generates the build/ folder (gitignored, like vendor/). During development, npm run start runs the compiler in watch mode instead.
+
+
 
 ## Structure
 
@@ -39,6 +49,9 @@ After `composer install`, run `./vendor/bin/phpunit`. The suite contains 8 tests
 - 2026-11-05 — Session 2: Clean-room test passed (vendor/ deleted, `composer install` rebuilt it, demo.php output unchanged). Installed local WordPress on MAMP (database created in phpMyAdmin, utf8mb4). Added climbing-session-log.php — plugin header, ABSPATH guard, guarded Composer autoloader require. Repo symlinked into wp-content/plugins/ and the plugin activated in wp-admin with no errors. demo.php still passes.
 
 - 2026-11-12 — Week 3 started early: Installed PHPUnit 12.5 via Composer as a dev dependency (require-dev), with `phpunit.xml.dist` (Composer autoloader bootstrap, `tests/` suite) and a `ClimbingLog\Tests\` autoload-dev mapping to the new `tests/` folder. Wrote `tests/SessionStatsTest.php` — 8 tests covering totalSessions, totalSends, sendRate (including the zero-sessions guard case), and sendsByGrade — all passing (OK, 8 tests, 8 assertions), including after a fresh `composer install` rebuild from the lock file. `demo.php` still passes.
+
+- 2026-11-19 — Weeks 4–5, Session 1: Gutenberg block work started a few days early. Added a dynamic block, climbing-log/recent-sessions — block.json declares one attribute (sessionsToShow, default 5), the React edit component uses ServerSideRender with a RangeControl in the inspector, and save returns null. render.php builds sample Session data for now, slices it by the attribute, prints the list, and adds a summary computed by SessionStats. Tooling: npm with @wordpress/scripts as a dev dependency (package.json and package-lock.json added; node_modules/ and build/ gitignored). Sources live in blocks-src/recent-sessions/ and compile to build/recent-sessions/; the plugin registers the block on init behind a file_exists guard. Verified in the editor (inserter, live preview, slider round trip) and on the front end. PHPUnit (8 tests) and demo.php still pass.
+
 
 
 ## License
