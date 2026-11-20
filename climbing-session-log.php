@@ -16,3 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require_once __DIR__ . '/vendor/autoload.php';
 }
+
+add_action( 'init', 'climbing_log_register_blocks' );
+
+function climbing_log_register_blocks(): void {
+    if ( file_exists( __DIR__ . '/build/recent-sessions/block.json' ) ) {
+        register_block_type( __DIR__ . '/build/recent-sessions' );
+    }
+}

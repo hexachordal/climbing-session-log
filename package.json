@@ -1,0 +1,19 @@
+{
+  "name": "climbing-session-log",
+  "version": "1.0.0",
+  "description": "A personal WordPress plugin for logging climbing sessions — grades, attempts, and sends — built as a learning project in modern PHP practices: Composer, PSR-4 autoloading, OOP, testing, Gutenberg blocks, and the WP REST API / WP-CLI.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+"scripts": {
+    "build": "wp-scripts build --webpack-src-dir=blocks-src --output-path=build",
+    "start": "wp-scripts start --webpack-src-dir=blocks-src --output-path=build"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^37.2.0"
+  }
+}

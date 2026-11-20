@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "climbing-log/recent-sessions",
+    "version": "0.1.0",
+    "title": "Recent Sessions",
+    "category": "widgets",
+    "icon": "chart-bar",
+    "description": "Displays the most recent climbing sessions from the log.",
+    "textdomain": "climbing-session-log",
+    "editorScript": "file:./index.js",
+    "render": "file:./render.php",
+    "attributes": {
+        "sessionsToShow": {
+            "type": "number",
+            "default": 5
+        }
+    }
+}
